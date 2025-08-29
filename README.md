@@ -1,18 +1,18 @@
 # Fundamentos y aplicación del módulo MFRC-522 (ESP32 + MQTT)
 
-## 🎯 Objetivo General
+## Objetivo General
 Implementar y documentar un sistema RFID con MFRC-522 y ESP32, que lea tarjetas MIFARE y publique eventos en JSON vía MQTT, integrando señales visuales con LED RGB y considerando aspectos éticos.
 
 ---
 
-## 📌 Objetivos Específicos
+## Objetivos Específicos
 - Explicar el principio de RFID y su rol en sistemas inteligentes.  
 - Instruir paso a paso la instalación y configuración (hardware y software).  
 - Incluir ejemplos de código y resultados de prueba (Serial + MQTT).  
 
 ---
 
-## 🧠 Competencias
+## Competencias
 - Manejo de protocolos de comunicación **SPI** y **MQTT**.  
 - Integración de hardware (ESP32 + MFRC-522 + LED RGB).  
 - Programación en **C++ para sistemas embebidos**.  
@@ -21,7 +21,7 @@ Implementar y documentar un sistema RFID con MFRC-522 y ESP32, que lea tarjetas 
 
 ---
 
-## 📑 Tabla de Contenidos
+## Tabla de Contenidos
 1. [Descripción](#-descripción)  
 2. [Requisitos](#-requisitos)  
 3. [Instalación y Configuración](#-instalación-y-configuración)  
@@ -38,14 +38,14 @@ Implementar y documentar un sistema RFID con MFRC-522 y ESP32, que lea tarjetas 
 
 ---
 
-## 📖 Descripción
+## Descripción
 La práctica consiste en diseñar y evaluar un sistema RFID con el módulo **MFRC-522** integrado a una **ESP32**, mostrando la autenticación de tarjetas mediante indicadores visuales (**LED RGB**) y el envío de eventos a través de **MQTT**.  
 
 Este sistema aplica los conceptos de sistemas inteligentes para control de accesos y registro de personas u objetos.  
 
 ---
 
-## 🛠️ Requisitos
+## Requisitos
 **Hardware:**  
 - ESP32 DevKit v1  
 - Módulo RFID MFRC-522  
@@ -60,7 +60,7 @@ Este sistema aplica los conceptos de sistemas inteligentes para control de acces
 
 ---
 
-## ⚙️ Instalación y Configuración
+## Instalación y Configuración
 1. Instalar **Arduino IDE**.  
 2. Añadir el **core de ESP32** desde el Gestor de tarjetas.  
 3. Instalar librerías necesarias (`MFRC522`, `PubSubClient`, `ArduinoJson`).  
@@ -75,7 +75,7 @@ Este sistema aplica los conceptos de sistemas inteligentes para control de acces
 
 ---
 
-## 🔌 Conexiones de Hardware
+## Conexiones de Hardware
 
 ### ESP32 ↔ MFRC-522
 | MFRC-522 | ESP32 |
@@ -94,11 +94,9 @@ Este sistema aplica los conceptos de sistemas inteligentes para control de acces
 - B → GPIO 27  
 - Común → GND  
 
-*(Si tu LED es ánodo común: común → 3.3V y activa `LED_COMMON_ANODE = true` en el código)*  
-
 ---
 
-## 📊 Parámetros Técnicos del MFRC-522
+## Parámetros Técnicos del MFRC-522
 | Parámetro         | Valor |
 |-------------------|-------|
 | Voltaje           | 3.3 V |
@@ -109,13 +107,13 @@ Este sistema aplica los conceptos de sistemas inteligentes para control de acces
 
 ---
 
-## 💻 Uso y ejemplos de Código
+## Uso y ejemplos de Código
 1. Encender **Serial Monitor** (115200).  
 2. Acercar una tarjeta MIFARE al lector.  
 3. Observar en consola el JSON generado.  
 4. Verificar en **MQTT Explorer** la llegada del mensaje.  
 
-📌 El código distingue 4 escenarios:  
+El código distingue 4 escenarios:  
 - Entrada  
 - Salida  
 - Tarjeta sin pase  
@@ -123,7 +121,7 @@ Este sistema aplica los conceptos de sistemas inteligentes para control de acces
 
 ---
 
-## 📷 Resultados de Prueba
+## Resultados de Prueba
 Se verificaron los siguientes casos:  
 
 - ✅ **Entrada:** tarjeta autorizada, primer pase → LED color integrante → JSON `"entrada"`.  
@@ -131,11 +129,9 @@ Se verificaron los siguientes casos:
 - ✅ **Sin pase:** tercer intento tras ciclo → LED blanco → JSON `"tarjeta sin pase"`.  
 - ✅ **Rechazada:** tarjeta no registrada → LED rojo → JSON `"tarjeta rechazada"`.  
 
-📷 *Inserta aquí capturas de: montaje, Serial Monitor, MQTT Explorer.*  
-
 ---
 
-## 🔒 Consideraciones Éticas y de Seguridad
+## Consideraciones Éticas y de Seguridad
 - **Privacidad:** los UIDs son identificadores únicos y no deben compartirse sin consentimiento.  
 - **Seguridad:** riesgo de clonación de tarjetas sin cifrado.  
 - **Mitigación:** uso de protocolos seguros (TLS, cifrado en tarjetas).  
@@ -143,7 +139,7 @@ Se verificaron los siguientes casos:
 
 ---
 
-## 📤 Formato de Salida (JSON)
+## Formato de Salida (JSON)
 
 ```json
 {
